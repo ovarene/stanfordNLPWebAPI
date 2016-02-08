@@ -11,19 +11,19 @@ import org.slf4j.*;
 import java.util.*;
 
 /**
- * Created by ovarene on 05/02/2016.
+ * NER CLI
  */
 public class NerCommand extends Command {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(NerCommand.class);
 
-  private StanfordNlp pipeline;
+  private Pipeline pipeline;
 
   public NerCommand() {
     super("ner", "ner command on text");
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
-    this.pipeline = new StanfordNlp(props);
+    this.pipeline = new Pipeline(props);
   }
 
   @Override

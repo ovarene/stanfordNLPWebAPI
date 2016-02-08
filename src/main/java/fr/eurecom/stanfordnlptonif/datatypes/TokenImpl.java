@@ -21,7 +21,6 @@ import fr.eurecom.stanfordnlptonif.nullobjects.NullToken;
 /**
  * This class represents a NIF token that is aligned to the corresponding Stanford NLP annotations.
  *
- * @author Julien Plu
  */
 public class TokenImpl implements Token {
   static final Logger LOGGER = LoggerFactory.getLogger(TokenImpl.class);

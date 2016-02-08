@@ -3,7 +3,7 @@ package fr.eurecom.stanfordnlptonif.configuration;
 import org.hibernate.validator.constraints.*;
 
 /**
- * Created by ovarene on 17/12/2015.
+ * Pipeline Configuration object
  */
 public class PipelineConfiguration {
 

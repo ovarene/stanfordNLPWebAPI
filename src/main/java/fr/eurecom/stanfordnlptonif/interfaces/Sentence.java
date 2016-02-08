@@ -10,7 +10,6 @@ import fr.eurecom.stanfordnlptonif.enums.NlpProcess;
 /**
  * Interface that represents a NIF and Stanford NLP sentence.
  *
- * @author Julien Plu
  */
 public interface Sentence {
   void addToken(final Token newToken);

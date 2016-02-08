@@ -24,7 +24,6 @@ import fr.eurecom.stanfordnlptonif.interfaces.Sentence;
 import fr.eurecom.stanfordnlptonif.nullobjects.NullSentence;
 
 /**
- * @author Julien Plu
  */
 public class ContextTest {
   static final Logger LOGGER = LoggerFactory.getLogger(ContextTest.class);

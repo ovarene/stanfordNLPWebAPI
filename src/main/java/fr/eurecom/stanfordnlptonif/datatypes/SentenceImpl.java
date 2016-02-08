@@ -29,7 +29,6 @@ import fr.eurecom.stanfordnlptonif.nullobjects.NullToken;
  * This class represents a NIF sentence that is aligned to the corresponding Stanford NLP
  * annotations.
  *
- * @author Julien Plu
  */
 public class SentenceImpl implements Sentence {
   static final Logger LOGGER = LoggerFactory.getLogger(SentenceImpl.class);

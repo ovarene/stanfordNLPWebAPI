@@ -3,7 +3,7 @@ package fr.eurecom.stanfordnlptonif.configuration;
 import org.hibernate.validator.constraints.*;
 
 /**
- * Created by ovarene on 04/02/2016.
+ * POS Configuration object
  */
 public class PosConfiguration {
 

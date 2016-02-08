@@ -31,7 +31,6 @@ import fr.eurecom.stanfordnlptonif.interfaces.Sentence;
  * This class represents a NIF context that is aligned to the corresponding Stanford NLP
  * annotations.
  *
- * @author Julien Plu
  */
 public class Context {
   static final Logger LOGGER = LoggerFactory.getLogger(Context.class);

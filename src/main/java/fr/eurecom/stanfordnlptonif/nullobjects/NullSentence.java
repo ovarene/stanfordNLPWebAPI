@@ -18,7 +18,6 @@ import fr.eurecom.stanfordnlptonif.interfaces.Token;
 /**
  * Null object that represents a null sentence.
  *
- * @author Julien Plu
  */
 public class NullSentence implements Sentence {
   static final Logger LOGGER = LoggerFactory.getLogger(NullSentence.class);

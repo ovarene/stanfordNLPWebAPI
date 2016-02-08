@@ -35,21 +35,21 @@ import fr.eurecom.stanfordnlptonif.interfaces.Sentence;
 import fr.eurecom.stanfordnlptonif.nullobjects.NullSentence;
 
 /**
- * @author Julien Plu on 08/01/2016.
+ * Test Core
  */
-public class StanfordNlpTest {
-  static final Logger LOGGER = LoggerFactory.getLogger(StanfordNlpTest.class);
+public class PipelineTest {
+  static final Logger LOGGER = LoggerFactory.getLogger(PipelineTest.class);
 
-  private static StanfordNlp stanfordNlp;
+  private static Pipeline pipeline;
 
-  public StanfordNlpTest() {
+  public PipelineTest() {
   }
 
   @BeforeClass
   public static void setUpBeforeClass() {
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
-    stanfordNlp = new StanfordNlp(props);
+    pipeline = new Pipeline(props);
   }
 
   /**
@@ -65,7 +65,7 @@ public class StanfordNlpTest {
         FileSystems.getDefault().getSeparator() + "pos.ttl"), Lang.TURTLE);
 
     Assert.assertTrue("Issue to get the proper full RDF model of a context for POS",
-        fileModel.isIsomorphicWith(stanfordNlp.run(text).rdfModel("stanfordnlp", NlpProcess.POS)));
+        fileModel.isIsomorphicWith(pipeline.run(text).rdfModel("stanfordnlp", NlpProcess.POS)));
   }
 
   /**
@@ -81,7 +81,7 @@ public class StanfordNlpTest {
         FileSystems.getDefault().getSeparator() + "ner.ttl"), Lang.TURTLE);
 
     Assert.assertTrue("Issue to get the proper full RDF model of a context for NER",
-        fileModel.isIsomorphicWith(stanfordNlp.run(text).rdfModel("stanfordnlp", NlpProcess.NER)));
+        fileModel.isIsomorphicWith(pipeline.run(text).rdfModel("stanfordnlp", NlpProcess.NER)));
   }
 
   /**
@@ -103,8 +103,8 @@ public class StanfordNlpTest {
     pipeline.annotate(document3);
 
     final Class[] cArg = {CoreMap.class, Context.class, Sentence.class};
-    final Method method = StanfordNlp.class.getDeclaredMethod("buildEntitiesFromSentence", cArg);
-    //final StanfordNlp stanfordNlp = new StanfordNlp("");
+    final Method method = Pipeline.class.getDeclaredMethod("buildEntitiesFromSentence", cArg);
+    //final Pipeline pipeline = new Pipeline("");
     final Context context = new Context("I like Paris", 0, 12);
     final Context context2 = new Context("Paris is a nice city.", 0, 21);
     final Context context3 = new Context("I like Natalie Portman", 0, 22);
@@ -121,15 +121,15 @@ public class StanfordNlpTest {
     method.setAccessible(true);
 
     for (final CoreMap map : document.get(CoreAnnotations.SentencesAnnotation.class)) {
-      method.invoke(stanfordNlp, map, context, sentence);
+      method.invoke(PipelineTest.pipeline, map, context, sentence);
     }
 
     for (final CoreMap map : document2.get(CoreAnnotations.SentencesAnnotation.class)) {
-      method.invoke(stanfordNlp, map, context2, sentence2);
+      method.invoke(PipelineTest.pipeline, map, context2, sentence2);
     }
 
     for (final CoreMap map : document3.get(CoreAnnotations.SentencesAnnotation.class)) {
-      method.invoke(stanfordNlp, map, context3, sentence3);
+      method.invoke(PipelineTest.pipeline, map, context3, sentence3);
     }
 
     Assert.assertTrue("Issue to build a one token entity at the end of a sentence",

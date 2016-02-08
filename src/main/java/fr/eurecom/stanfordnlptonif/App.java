@@ -1,7 +1,7 @@
 package fr.eurecom.stanfordnlptonif;
 
 /**
- * Created by ovarene on 11/08/2015.
+ * Main entrance to program : cli + rest
  */
 
 import fr.eurecom.stanfordnlptonif.command.*;
@@ -15,7 +15,7 @@ public class App extends Application<AppConfiguration> {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 
-  private StanfordNlp pipeline;
+  private Pipeline pipeline;
 
   @Override
   public String getName() {
@@ -34,7 +34,7 @@ public class App extends Application<AppConfiguration> {
   @Override
   public void run(AppConfiguration appConfiguration, Environment environment) throws Exception {
 
-    this.pipeline = new StanfordNlp(StanfordNlp.confToProp(appConfiguration.getPipeline()));
+    this.pipeline = new Pipeline(Pipeline.confToProp(appConfiguration.getPipeline()));
 
     // handles /v1/pos
     environment.jersey().register(new PosResource(this.pipeline));

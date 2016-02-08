@@ -32,15 +32,14 @@ import fr.eurecom.stanfordnlptonif.nullobjects.NullToken;
 /**
  * Business class that is manipulating Stanford NLP annotations.
  *
- * @author Julien Plu
  */
-public class StanfordNlp {
-  static final Logger LOGGER = LoggerFactory.getLogger(StanfordNlp.class);
+public class Pipeline {
+  static final Logger LOGGER = LoggerFactory.getLogger(Pipeline.class);
   private String text;
   private final StanfordCoreNLP pipeline;
 
 
-  public StanfordNlp(Properties props) {
+  public Pipeline(Properties props) {
     this.pipeline = new StanfordCoreNLP(props);
   }
 
@@ -61,40 +60,6 @@ public class StanfordNlp {
     this.pipeline.annotate(document);
     return this.buildContext(document.get(CoreAnnotations.SentencesAnnotation.class));
   }
-
-
-  /*
-  @Deprecated
-  private StanfordNlp(final String newText) {
-    this.text = newText;
-  }
-  */
-  /**
-   * Create the context corresponding to the processed text by using StanfordNLP.
-   *
-   * @return Proper context
-   *
-  @Deprecated
-  private final Context run() {
-    final Annotation document = this.initStanfordNlp();
-
-    return this.buildContext(document.get(CoreAnnotations.SentencesAnnotation.class));
-  }
-
-  @Deprecated
-  private Annotation initStanfordNlp() {
-    final Properties props = new Properties();
-
-    props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
-
-    final StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
-    final Annotation document = new Annotation(this.text);
-
-    pipeline.annotate(document);
-
-    return document;
-  }
-  // */
 
   private Context buildContext(final List<CoreMap> sentences) {
     final Context tmpContext = new Context(this.text, 0, this.text.length());
@@ -221,7 +186,7 @@ public class StanfordNlp {
   @Override
   @CoberturaIgnore
   public final String toString() {
-    return "StanfordNlp{"
+    return "Pipeline{"
         + "text='" + this.text + '\''
         + '}';
   }

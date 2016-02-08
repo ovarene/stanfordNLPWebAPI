@@ -11,7 +11,7 @@ import javax.ws.rs.core.*;
 import java.util.concurrent.atomic.*;
 
 /**
- * Created by ovarene on 17/12/2015.
+ * NER Rest Web service
  */
 
 @Path("/v1/ner")
@@ -20,9 +20,9 @@ public class NerResource {
   private static final Logger LOGGER = LoggerFactory.getLogger(NerResource.class);
 
   private AtomicLong  counter;
-  private StanfordNlp pipeline;
+  private Pipeline pipeline;
 
-  public NerResource(StanfordNlp pipeline) {
+  public NerResource(Pipeline pipeline) {
     LOGGER.info("NerResource init");
     this.pipeline = pipeline;
   }

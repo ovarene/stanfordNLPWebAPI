@@ -1,12 +1,11 @@
 /**
- * Created by ovarene on 11/08/2015.
+ * Loads Application configuration from yaml file
  */
 package fr.eurecom.stanfordnlptonif;
 
 import com.fasterxml.jackson.annotation.*;
 import fr.eurecom.stanfordnlptonif.configuration.*;
 import io.dropwizard.*;
-import org.hibernate.validator.constraints.*;
 
 import javax.validation.constraints.*;
 

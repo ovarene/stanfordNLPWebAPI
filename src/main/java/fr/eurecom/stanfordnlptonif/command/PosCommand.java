@@ -11,19 +11,19 @@ import net.sourceforge.argparse4j.inf.*;
 import java.util.*;
 
 /**
- * Created by ovarene on 05/02/2016.
+ * POS CLI
  */
 public class PosCommand extends Command {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PosCommand.class);
 
-  private StanfordNlp pipeline;
+  private Pipeline pipeline;
 
   public PosCommand() {
     super("pos", "pos command on text");
     Properties props = new Properties();
     props.setProperty("annotators", "tokenize, ssplit, pos, lemma, ner");
-    this.pipeline = new StanfordNlp(props);
+    this.pipeline = new Pipeline(props);
   }
 
   @Override

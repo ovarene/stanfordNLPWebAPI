@@ -9,7 +9,6 @@ import fr.eurecom.stanfordnlptonif.interfaces.Token;
 /**
  * Null object that represents a null token.
  *
- * @author Julien Plu
  */
 public class NullToken implements Token {
   static final Logger LOGGER = LoggerFactory.getLogger(NullToken.class);

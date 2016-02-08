@@ -22,7 +22,6 @@ import fr.eurecom.stanfordnlptonif.nullobjects.NullSentence;
 import fr.eurecom.stanfordnlptonif.nullobjects.NullToken;
 
 /**
- * @author Julien Plu
  */
 public class SentenceImplTest {
   static final Logger LOGGER = LoggerFactory.getLogger(SentenceImplTest.class);

@@ -19,7 +19,6 @@ import fr.eurecom.stanfordnlptonif.interfaces.Sentence;
  * This class represents a NIF Entity that is aligned to the corresponding Stanford NLP
  * annotations.
  *
- * @author Julien Plu
  */
 public class Entity {
   static final Logger LOGGER = LoggerFactory.getLogger(Entity.class);
